@@ -7,8 +7,21 @@ public class Main {
         }
         else{
             if(args[0].equals("decode")){
-                Object decodedValue = Bencoding_decoder.decode(args[1],new int[]{0});
+                Byte[] byteArray = args[1]
+                        .chars()
+                        .mapToObj(value -> (byte) value)
+                        .toArray(Byte[]::new);
+                Object decodedValue = Bencoding_decoder.decode(byteArray,new int[]{0});
                 System.out.println("object type is " + decodedValue.getClass() + "object value is " + decodedValue);
+            }
+            else if(args[0].equals("parse")){
+                TorrentMetaData torrentMetaData = TorrentFileParser.parseTorrentFile(args[1]);
+                if(null!=torrentMetaData){
+                    System.out.println(torrentMetaData);
+                }
+                else{
+                    System.out.println("Unable to parse Torrent File");
+                }
             }
         }
     }

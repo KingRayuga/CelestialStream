@@ -1,5 +1,8 @@
 package org.example;
 
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.nio.ByteBuffer;
 import java.util.*;
 
 public class Bencoding_decoder {
@@ -27,7 +30,11 @@ public class Bencoding_decoder {
             while (encodedBytes[index[0]] != 'e') {
                 Object key = decode(encodedBytes, index);
                 Object value = decode(encodedBytes, index);
-                dict.put(key, value);
+                if(key instanceof Byte[]){
+                    dict.put(ByteBuffer.wrap((byte[]) ArrayUtils.toPrimitive(key)),value);
+                }else {
+                    dict.put(key, value);
+                }
             }
             return dict;
         } else if (Character.isDigit((char) encodedBytes[index[0]].byteValue())) {
