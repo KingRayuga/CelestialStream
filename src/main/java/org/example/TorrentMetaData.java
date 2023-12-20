@@ -9,7 +9,7 @@ public class TorrentMetaData {
     private String name;
     private List<TorrentFile> files;
 
-    public TorrentMetaData(String announceURL, int pieceLength, Byte[] pieces, String name, List<TorrentFile> files){
+    public TorrentMetaData(String announceURL, int pieceLength, Byte[] pieces, String name, List<TorrentFile> files) {
         this.announceURL = announceURL;
         this.pieceLength = pieceLength;
         this.pieces = pieces;
@@ -17,11 +17,11 @@ public class TorrentMetaData {
         this.files = files;
     }
 
-    public String getURL(){
+    public String getURL() {
         return announceURL;
     }
 
-    public int getPieceLength(){
+    public int getPieceLength() {
         return pieceLength;
     }
 

@@ -30,9 +30,9 @@ public class Bencoding_decoder {
             while (encodedBytes[index[0]] != 'e') {
                 Object key = decode(encodedBytes, index);
                 Object value = decode(encodedBytes, index);
-                if(key instanceof Byte[]){
-                    dict.put(ByteBuffer.wrap((byte[]) ArrayUtils.toPrimitive(key)),value);
-                }else {
+                if (key instanceof Byte[]) {
+                    dict.put(ByteBuffer.wrap((byte[]) ArrayUtils.toPrimitive(key)), value);
+                } else {
                     dict.put(key, value);
                 }
             }
