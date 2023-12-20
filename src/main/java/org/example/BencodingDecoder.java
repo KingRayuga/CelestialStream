@@ -5,7 +5,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.nio.ByteBuffer;
 import java.util.*;
 
-public class Bencoding_decoder {
+public class BencodingDecoder {
     public static Object decode(Byte[] encodedBytes, int[] index) {
         if (encodedBytes == null || encodedBytes.length == 0) {
             return null;

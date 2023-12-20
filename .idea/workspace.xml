@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="870ecab9-8fd0-47b8-a227-2b43fe90e094" name="Changes" comment="add: multi-file .torrent parser">
+    <list default="true" id="870ecab9-8fd0-47b8-a227-2b43fe90e094" name="Changes" comment="re-format">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Bencoding_decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Bencoding_decoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Bencoding_decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BencodingDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TorrentFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TorrentFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TorrentFileParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TorrentFileParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TorrentMetaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TorrentMetaData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703102927082</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="re-format">
+      <option name="closed" value="true" />
+      <created>1703107464079</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703107464079</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,7 +154,8 @@
     <MESSAGE value="add: BEncoding decoder" />
     <MESSAGE value="update: decoder to handle Byte[]" />
     <MESSAGE value="add: multi-file .torrent parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: multi-file .torrent parser" />
+    <MESSAGE value="re-format" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-format" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

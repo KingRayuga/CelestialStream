@@ -19,7 +19,7 @@ public class TorrentFileParser {
             byte[] reader = bufferedInputStream.readAllBytes();
             Byte[] bytes = ArrayUtils.toObject(reader);
 
-            Map<Object, Object> torrentData = (Map<Object, Object>) Bencoding_decoder.decode(bytes, new int[]{0});
+            Map<Object, Object> torrentData = (Map<Object, Object>) BencodingDecoder.decode(bytes, new int[]{0});
 
             String announceURL = StringUtils.toEncodedString((byte[]) ArrayUtils.toPrimitive(torrentData.get(ByteBuffer.wrap("announce".getBytes()))), Charset.defaultCharset());
             Map<Object, Object> infoDict = (Map<Object, Object>) torrentData.get(ByteBuffer.wrap("info".getBytes()));
