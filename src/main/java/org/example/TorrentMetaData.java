@@ -8,6 +8,8 @@ public class TorrentMetaData {
     private Byte[] pieces;
     private String name;
     private List<TorrentFile> files;
+    private byte[] infoHash;
+    private List<byte[]> pieceHash;
 
     public TorrentMetaData(String announceURL, int pieceLength, Byte[] pieces, String name, List<TorrentFile> files) {
         this.announceURL = announceURL;
@@ -26,14 +28,33 @@ public class TorrentMetaData {
     }
 
     public Byte[] getPieces() {
+
         return pieces;
     }
 
     public List<TorrentFile> getFiles() {
+
         return files;
     }
 
     public String getName() {
+
         return name;
+    }
+
+    public byte[] getInfoHash() {
+        return infoHash;
+    }
+
+    public List<byte[]> getPieceHash() {
+        return pieceHash;
+    }
+
+    public void setInfoHash(byte[] infoHash) {
+        this.infoHash = infoHash;
+    }
+
+    public void setPieceHash(List<byte[]> pieceHash) {
+        this.pieceHash = pieceHash;
     }
 }

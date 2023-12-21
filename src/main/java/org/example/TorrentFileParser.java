@@ -19,7 +19,8 @@ public class TorrentFileParser {
             byte[] reader = bufferedInputStream.readAllBytes();
             Byte[] bytes = ArrayUtils.toObject(reader);
 
-            Map<Object, Object> torrentData = (Map<Object, Object>) BencodingDecoder.decode(bytes, new int[]{0});
+            BencodingDecoder bencodingDecoder = new BencodingDecoder();
+            Map<Object, Object> torrentData = (Map<Object, Object>) bencodingDecoder.decode(bytes, new int[]{0});
 
             String announceURL = StringUtils.toEncodedString((byte[]) ArrayUtils.toPrimitive(torrentData.get(ByteBuffer.wrap("announce".getBytes()))), Charset.defaultCharset());
             Map<Object, Object> infoDict = (Map<Object, Object>) torrentData.get(ByteBuffer.wrap("info".getBytes()));
@@ -29,7 +30,12 @@ public class TorrentFileParser {
 
             List<TorrentFile> files = parseFiles(infoDict);
 
-            return new TorrentMetaData(announceURL, pieceLength, pieces, name, files);
+            TorrentMetaData torrentMetaData = new TorrentMetaData(announceURL, pieceLength, pieces, name, files);
+
+            torrentMetaData.setInfoHash(InfoHash.getInfoHash(bencodingDecoder.getInfo()));
+            torrentMetaData.setPieceHash(PieceHash.getPieceHash(bencodingDecoder.getPiece(),pieceLength));
+
+            return torrentMetaData;
 
         } catch (IOException e) {
             throw new RuntimeException(e);

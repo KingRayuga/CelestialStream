@@ -6,7 +6,10 @@ import java.nio.ByteBuffer;
 import java.util.*;
 
 public class BencodingDecoder {
-    public static Object decode(Byte[] encodedBytes, int[] index) {
+
+    private Byte[] info;
+    private Byte[] piece;
+    public Object decode(Byte[] encodedBytes, int[] index) {
         if (encodedBytes == null || encodedBytes.length == 0) {
             return null;
         }
@@ -29,6 +32,14 @@ public class BencodingDecoder {
             index[0] += 1;
             while (encodedBytes[index[0]] != 'e') {
                 Object key = decode(encodedBytes, index);
+                if(key instanceof Byte[]){
+                    String keyString = new String((byte[]) ArrayUtils.toPrimitive(key));
+                    if(keyString.equals("info")){
+                        info = encodedBytes;
+                    }else if(keyString.equals("pieces")){
+                        piece = encodedBytes;
+                    }
+                }
                 Object value = decode(encodedBytes, index);
                 if (key instanceof Byte[]) {
                     dict.put(ByteBuffer.wrap((byte[]) ArrayUtils.toPrimitive(key)), value);
@@ -47,7 +58,7 @@ public class BencodingDecoder {
         return null;
     }
 
-    private static int indexOf(Byte[] array, byte target, int fromIndex) {
+    private int indexOf(Byte[] array, byte target, int fromIndex) {
         for (int i = fromIndex; i < array.length; i++) {
             if (array[i] == target) {
                 return i;
@@ -56,11 +67,19 @@ public class BencodingDecoder {
         return -1;
     }
 
-    private static int bytesToInt(Byte[] bytes) {
+    private int bytesToInt(Byte[] bytes) {
         int result = 0;
         for (Byte b : bytes) {
             result = result * 10 + (b - '0');
         }
         return result;
+    }
+
+    public byte[] getInfo(){
+        return ArrayUtils.toPrimitive(info);
+    }
+
+    public byte[] getPiece(){
+        return ArrayUtils.toPrimitive(piece);
     }
 }
