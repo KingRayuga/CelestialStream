@@ -21,7 +21,7 @@ public class Main {
                     torrentMetaData[i - 1] = TorrentFileParser.parseTorrentFile(args[i]);
                     if (null != torrentMetaData[i - 1]) {
                         System.out.println(i + " - torrent file is " + torrentMetaData[i - 1]);
-                        System.out.println("infoHash is " + HexStringConvert(torrentMetaData[i-1].getInfoHash()));
+                        System.out.println("infoHash is " + HexStringConvert(torrentMetaData[i - 1].getInfoHash()));
                     } else {
                         System.out.println("Unable to parse file - " + i);
                     }
@@ -29,9 +29,10 @@ public class Main {
             }
         }
     }
-    private static String HexStringConvert(byte[] bytes){
+
+    private static String HexStringConvert(byte[] bytes) {
         StringBuilder stringBuilder = new StringBuilder();
-        for(byte b: bytes){
+        for (byte b : bytes) {
             stringBuilder.append(String.format("%02x", b));
         }
         return stringBuilder.toString();

@@ -46,12 +46,12 @@ public class TorrentMetaData {
         return infoHash;
     }
 
-    public List<byte[]> getPieceHash() {
-        return pieceHash;
-    }
-
     public void setInfoHash(byte[] infoHash) {
         this.infoHash = infoHash;
+    }
+
+    public List<byte[]> getPieceHash() {
+        return pieceHash;
     }
 
     public void setPieceHash(List<byte[]> pieceHash) {

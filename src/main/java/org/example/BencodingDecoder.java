@@ -9,6 +9,7 @@ public class BencodingDecoder {
 
     private Byte[] info;
     private Byte[] piece;
+
     public Object decode(Byte[] encodedBytes, int[] index) {
         if (encodedBytes == null || encodedBytes.length == 0) {
             return null;
@@ -32,11 +33,11 @@ public class BencodingDecoder {
             index[0] += 1;
             while (encodedBytes[index[0]] != 'e') {
                 Object key = decode(encodedBytes, index);
-                if(key instanceof Byte[]){
+                if (key instanceof Byte[]) {
                     String keyString = new String((byte[]) ArrayUtils.toPrimitive(key));
-                    if(keyString.equals("info")){
+                    if (keyString.equals("info")) {
                         info = encodedBytes;
-                    }else if(keyString.equals("pieces")){
+                    } else if (keyString.equals("pieces")) {
                         piece = encodedBytes;
                     }
                 }
@@ -75,11 +76,11 @@ public class BencodingDecoder {
         return result;
     }
 
-    public byte[] getInfo(){
+    public byte[] getInfo() {
         return ArrayUtils.toPrimitive(info);
     }
 
-    public byte[] getPiece(){
+    public byte[] getPiece() {
         return ArrayUtils.toPrimitive(piece);
     }
 }
