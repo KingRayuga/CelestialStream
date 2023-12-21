@@ -3,11 +3,11 @@ package org.example;
 import java.util.List;
 
 public class TorrentMetaData {
-    private String announceURL;
-    private int pieceLength;
-    private Byte[] pieces;
-    private String name;
-    private List<TorrentFile> files;
+    private final String announceURL;
+    private final int pieceLength;
+    private final Byte[] pieces;
+    private final String name;
+    private final List<TorrentFile> files;
     private byte[] infoHash;
     private List<byte[]> pieceHash;
 
