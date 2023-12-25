@@ -27,7 +27,7 @@ Utilize an Executor service that dynamically adjusts the number of threads based
 
 ## Usage
 
-![](https://imgur.com/a/JBbXd31)
+![](https://i.imgur.com/YKeg4SD.png)
 
 
 ### Decode with Several BEncoded Strings
