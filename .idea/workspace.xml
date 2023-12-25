@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="870ecab9-8fd0-47b8-a227-2b43fe90e094" name="Changes" comment="add: bitTorrent peer hand-shake" />
+    <list default="true" id="870ecab9-8fd0-47b8-a227-2b43fe90e094" name="Changes" comment="update: try with resource">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MessageType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -187,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703489700206</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update: try with resource">
+      <option name="closed" value="true" />
+      <created>1703490461392</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1703490461392</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,7 +226,8 @@
     <MESSAGE value="update: peer info parser" />
     <MESSAGE value="update: tracker-request" />
     <MESSAGE value="add: bitTorrent peer hand-shake" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: bitTorrent peer hand-shake" />
+    <MESSAGE value="update: try with resource" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: try with resource" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
