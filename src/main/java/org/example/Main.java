@@ -1,9 +1,12 @@
 package org.example;
 
 import java.security.SecureRandom;
+import java.util.List;
 import java.util.stream.IntStream;
 
 public class Main {
+
+    private static byte[] peerId;
     public static void main(String[] args) {
         if (args.length < 2) {
             System.out.println("unequal argument");
@@ -25,6 +28,18 @@ public class Main {
                         System.out.println("infoHash is " + HexStringConvert(torrentMetaData[i - 1].getInfoHash()));
                     } else {
                         System.out.println("Unable to parse file - " + i);
+                    }
+                });
+            } else if (args[0].equals("download")) {
+                TorrentMetaData[] torrentMetaData = new TorrentMetaData[args.length - 1];
+                IntStream.rangeClosed(1, args.length - 1).parallel().forEach(i -> {
+                    torrentMetaData[i - 1] = TorrentFileParser.parseTorrentFile(args[i]);
+                    if (null != torrentMetaData[i - 1]) {
+                        PeerInfoParser peerInfoParser = TrackerRequest.sendRequest(torrentMetaData[i-1],HexStringConvert(peerId));
+                        List<PeerInfo> peers = peerInfoParser.getPeers();
+                        FileDownloader fileDownloader = new FileDownloader(peers,torrentMetaData[i-1],peerId);
+                    } else {
+                        System.out.println("Unable to download file " + args[i]);
                     }
                 });
             }
