@@ -17,7 +17,7 @@ public class PieceDownloader {
     private volatile boolean downloadSuccessful;
     private byte[] finalFile;
 
-    PieceDownloader(Socket socket, TorrentMetaData torrentMetaData, int index, String peerIp, int peerPort, byte[] peerId, byte[] finalFile) {
+    PieceDownloader(TorrentMetaData torrentMetaData, int index, String peerIp, int peerPort, byte[] peerId, byte[] finalFile) {
         this.torrentMetaData = torrentMetaData;
         this.index = index;
         this.downloadSuccessful = false;
