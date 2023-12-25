@@ -1,5 +1,6 @@
 package org.example;
 
+import java.security.SecureRandom;
 import java.util.stream.IntStream;
 
 public class Main {
@@ -30,6 +31,13 @@ public class Main {
         }
     }
 
+    private static byte[] generateId(){
+        int arrayLength = 20;
+        SecureRandom secureRandom = new SecureRandom();
+        byte[] randomByte = new byte[arrayLength];
+        secureRandom.nextBytes(randomByte);
+        return randomByte;
+    }
     private static String HexStringConvert(byte[] bytes) {
         StringBuilder stringBuilder = new StringBuilder();
         for (byte b : bytes) {
