@@ -20,16 +20,13 @@ public class BitTorrentHandShake {
     }
 
     public void doHandShake() {
-        try {
-            Socket socket = new Socket(peerIp, peerPort);
+        try (Socket socket = new Socket(peerIp, peerPort)) {
 
             if (doHandShake(socket)) {
                 System.out.println("Hand shake successful");
             } else {
                 System.out.println("Hand shake failed");
             }
-
-            socket.close();
 
         } catch (IOException e) {
             throw new RuntimeException(e);
