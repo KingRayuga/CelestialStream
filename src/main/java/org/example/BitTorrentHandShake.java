@@ -7,20 +7,19 @@ import java.net.Socket;
 import java.util.Arrays;
 
 public class BitTorrentHandShake {
-    private final String peerIp;
-    private final int peerPort;
+
+    private final Socket socket;
     private final byte[] infoHash;
     private final byte[] peerId;
 
-    public BitTorrentHandShake(String peerIp, int peerPort, byte[] infoHash, byte[] peerId) {
+    public BitTorrentHandShake( byte[] infoHash, byte[] peerId,Socket socket) {
         this.peerId = peerId;
-        this.peerPort = peerPort;
         this.infoHash = infoHash;
-        this.peerIp = peerIp;
+        this.socket = socket;
     }
 
     public void doHandShake() {
-        try (Socket socket = new Socket(peerIp, peerPort)) {
+        try {
 
             if (doHandShake(socket)) {
                 System.out.println("Hand shake successful");
